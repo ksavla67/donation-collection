@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+}
+form{
+    margin:5px;
+    padding: 0;
+    align-items: left;
+}
+
+#row{
+    margin: 1cm !important;
+    display: inline;
+    float: left;
+}
+
+#column{
+        display:block;
+}
+
+
+
+label{
+    width: 50px !important;
+    margin: 10px !important;
+}

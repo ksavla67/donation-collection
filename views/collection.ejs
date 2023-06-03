@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Collection</title>
+</head>
+<style>
+        #style{
+        text-align: center;
+        display: inline-block;
+        width:3.6cm;
+        margin: 10px;
+    }
+
+    #column{
+        width: max-content;
+        margin:5px;
+    }
+
+    input{
+        margin:10px;
+        width: 3.5cm;
+        height: 0.7cm;
+        font-size: 0.4cm;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    button{
+        width: 1.5cm;
+        height: 0.8cm;
+        font-size: 0.4cm;
+        border-radius: 5px;
+    }
+
+    button:hover{
+        background-color: aqua;
+        color: blue;
+        font-weight: bold;
+        box-shadow: 0 0 2px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <%- include('partials/header')%>
+
+    <form action="http://localhost:3000/collection" method="post">
+        <div id="column">
+            <div class="row">
+                <label for="box_no" id="style">Box No</label>
+                <label for="shopname" id="style" style="width:7cm">Shop Name</label>
+                <label for="area" id="style">Area</label>
+                <label for="amount" id="style">Amount</label>
+                <label for="collector" id="style" style="width:4.6cm">Collector Mumukshu</label>
+                <label for="date" id="style">Date</label>
+
+            </div>
+        </div>
+        <div id="column">
+            <div class="row">
+                <input type="text" id="box_no" name="box_no" value ="{{box_details.box_no}}" required>
+                <input type="text" id="shopname" name="shopname" value="{{this.shop_name}}"style="width:7cm" required>
+                <input type="text" id="area" name="area" required>
+                <input type="text" id="amount" name="amount" required>
+                <input type="text" id="collector" name="collector" value="<%=name%>" style="width:4.6cm" required disabled>
+                <input type="date" id="date" name="date" required>
+                <button type="submit">Add</button>
+                
+            </div>
+        </div>
+    </form>
+</body>
+        <script>
+            let date = new Date().toISOString().substr(0, 10);
+            document.querySelector("#date").value = date;
+            console.log(date)
+        </script> 
+</html>

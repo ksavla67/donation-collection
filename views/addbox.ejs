@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/addbox.css">
+    <title>Add Box</title>
+</head>
+<body>
+    <%- include('partials/header')%>
+        
+            <form action="http://localhost:3000/box" method="post">
+        
+                <h4>Box Detail</h4>
+                    <div id="column">
+                        <div id="row">
+                        <label>City</label>
+                        <input type="text" id="city" name="city" required>
+
+                        <label>Box number</label>
+                        <input type="text" id="box_no" name="box_no" required>
+                        
+                        <label for="version_no">Version Number</label>
+                        <input type="text" id="version_no" name="version_no" required>
+                        </div>
+                    </div>
+                    <div id="column">
+                        <div id="row">
+                        <label for="placement_date">Placement Date</label>
+                        <input type="date" id="placement_date" name="placement_date" required style="width:150px">
+                        
+                        <label for="box_status">Box Status</label>
+                        <select name="box_status" id="box_status">
+                            <option value="new">New</option>
+                            <option value="active">Active</option>
+                            <option value="cancel">Cancel</option>
+                        </select>
+
+                        <label for="collector_mumukshu_no">Collector Mumukshu</label>
+                        <select id="collector_mumukshu_no" name="collector_mumukshu_no" required>
+                            <% for (var data in cnames) { %>
+                                <option value="<%= cnames[data].mobile %>" selected><%= cnames[data].firstname %> <%= cnames[data].lastname %> </option>
+                                <% } %>
+                        </select>
+                        </div>
+                    </div>
+                    
+                        <br><br><br>
+                        
+                        <br><br><br>
+                        <label for="cancel_date">Cancel Date</label>
+                        <input type="date" id="cancel_date" name="cancel_date" required style="width:150px">
+
+                                                
+                    
+                        <label for="cancel_reason">Cancel Reason</label>
+                        <input type="text" id="cancel_reason" name="cancel_reason">
+                        <br><br>
+                    <h4>Shop Detail</h4>
+            
+                    
+                    <label for="shop_name">Shop Name</label>
+                    <input type="text" id="shop_name" name="shop_name" required style="width:400px">
+                    
+                    <label for="shop_type">Shop Type</label>
+                    <input type="text" id="shop_type" name="shop_type" required>
+                    <br><br><br>
+
+                    <label for="shop_owner_name">Shop Owner Name</label>
+                    <input type="text" id="shop_owner_name" name="shop_owner_name" required>
+                    
+                    <label for="mobile">Mobile</label>
+                    <input type="text" id="mobile" name="mobile" required>
+                    
+                    <label for="telephone">Telephone</label>
+                    <input type="text" id="telephone" name="telephone">
+                    <br><br><br>
+
+                    <label for="shop_address_1">Shop Address</label>&nbsp;&nbsp;
+                    <input type="text" id="shop_address_1" name="shop_address_1" required style="width:800px">
+                    <br><br>
+                    
+                    <input type="text" id="shop_address_2" name="shop_address_2" style="width:800px" >
+                    <br><br><br>
+
+                    <label for="area">Area</label>&nbsp;&nbsp;
+                    <input type="text" id="area" name="area" required>
+                    
+                    <!-- <label for="city1">City</label>&nbsp;&nbsp;
+                    <input type="text" id="city1" name="city1" required>  -->
+                    
+                    <label for="state">State</label>&nbsp;&nbsp;
+                    <input type="text" id="state" name="state" required>
+                    <br><br><br>
+
+                    <label for="pincode">Pincode</label>&nbsp;&nbsp;
+                    <input type="text" id="pincode" name="pincode" required>
+
+                    <label for="visiting_card">Shop Visiting card</label>&nbsp;&nbsp;
+                    <input type="text" id="visiting_card" name="visiting_card" required>
+                    <br><br><br>
+
+            <button type="submit" style="width: 80px; height: 30px;"> Add </button>
+            
+        
+        </form>
+        <button class="cancel" type="submit" style="position:relative; bottom:30px; left: 110px;width: 80px; height:30px"> Cancel </button>
+        <br>
+        
+    <h3></h3>
+</body>
+<script>
+    const data = document.getElementById('collector_mumukshu_no')
+
+    data.addEventListener("change", (e)=>{
+        e.preventDefault();
+        console.log(data.value)
+    })
+
+</script>
+<script src="../addbox.js"></script>
+</html>

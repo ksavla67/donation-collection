@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/addbox.css">
+    <title>Add Box</title>
+</head>
+<body>
+    <%- include('partials/header')%>
+        
+            <form action="http://localhost:3000/box" method="post">
+        
+                <h4>Box Detail</h4>
+                    <div id="column">
+                        <div id="row">
+                        <label>City</label>
+                        <input type="text" id="city" name="city" required>
+
+                        <label>Box number</label>
+                        <input type="text" id="box_no" name="box_no" required>
+
+                        <label for="version_no">Version Number</label>
+                        <input type="text" id="version_no" name="version_no" required>
+                        </div>
+                    </div>
+
+                    <div id="column">
+                        <div id="row">
+                        <label for="placement_date">Placement Date</label>
+                        <input type="date" id="placement_date" name="placement_date" required style="width:150px">
+                        
+                        <label for="box_status">Box Status</label>
+                        <select name="box_status" id="box_status">
+                            <option value="new">New</option>
+                            <option value="active">Active</option>
+                            <option value="cancel">Cancel</option>
+                        </select>
+
+                        <label for="collector_mumukshu_no">Collector Mumukshu</label>
+                        <select id="collector_mumukshu_no" name="collector_mumukshu_no" required>
+                            <% for (var data in cnames) { %>
+                                <option value="<%= cnames[data].mobile %>" selected><%= cnames[data].firstname %> <%= cnames[data].lastname %> </option>
+                                <% } %>
+                        </select>
+                        </div>
+                    </div>
+            </form>
+</body>
+</html>

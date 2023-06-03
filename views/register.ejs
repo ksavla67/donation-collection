@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<style>
+    body{
+        background-color: #9f9da7;
+        
+        font-family: "Open Sans", sans-serif;
+    
+    }
+    
+    input{
+
+        border-radius: 10px;
+        height: 20px;
+        width: auto;
+    }
+    .form-data{
+        
+        width: 70vh;
+        position: relative;
+        align-items: center;
+    }
+
+    fieldset{
+        width: 95%;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        display: flex;
+        left: 100%;
+        top: 80px;
+    }
+
+    button{
+        font: bold 15px arial,sans-serif;
+        background: #B9DFFF;
+        color: #fff;
+        width: 100%;
+        height: 30px;
+        border-style: outset;
+        border-radius: 10px;
+        position: relative;
+        justify-content: center;
+    }
+
+    button:hover{
+        color: white    ;
+        background-color:  #0066A2;;
+        cursor: pointer;
+    }
+    #member{
+        color: blue;
+    }
+    div{
+        height:200px;    
+    }
+    
+</style>
+
+<body>
+    
+        <div class="form-data">
+            <fieldset>
+                <legend>Registration Form</legend>
+                
+                <form action="http://localhost:3000/users/register" method="post">
+            
+                    <label for="firstname">Firstname<span style="color:red">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="lastname">Lastname<span style="color:red">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                
+                <input type="text" id="firstname" name="firstname" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
+                <input type="text" id="lastname" name="lastname" required>
+                <br><br>
+            
+                Gender<span style="color:red">*</span>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+        
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <br><br>
+            
+                
+
+
+                <label for="area">Area<span style="color:red">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="mobile">Mobile<span style="color:red">*</span></label><br>
+
+                <input type="text" id="area" name="area">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="mobile" name="mobile"> 
+                <br><br>
+
+                
+                    <label for="username">Create Username<span style="color:red">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="passowrd">Create Password<span style="color:red">*</span></label>
+                    <br>
+                    <input type="text" id="username" name="username">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="password" id="passowrd" name="password">
+                    <br><br>  
+                
+                
+                <label for="join_date">Join Date<span style="color:red">*</span></label>    
+                <input type="date" id="join_date" name="join_date" max="join_date" step="1">
+                <br><br>
+
+                <button type="submit" id="btn1">Register</button>
+                <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Already a member? <a href="http://localhost:3000/users/login" style="color:brown">Sign In</a>                     
+                </form>
+                <br><br>
+            </fieldset>                     
+        </div>
+               
+</body>
+<script>
+            let join_date = new Date().toISOString().substr(0, 10);
+            document.querySelector("#join_date").value = join_date;
+            console.log(join_date)
+        </script> 
+</html>
